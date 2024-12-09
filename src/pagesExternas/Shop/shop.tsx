@@ -1,14 +1,18 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import ShopBanner from "../imgBanner/ShopBanner.png"
 import ListItens from "./ComponentesShop/itensList/ShopItens"
 import FilterBox from "./ComponentesShop/ModalFilter/ModalFilter"
 
 const ShopItens= ()=>{
-    const [moveList, setMove]= useState('')
+    const [moveList, setMove]= useState(0)
 
     const checkedMove= ()=>{
-        setMove('')
-        console.log('foi modeficado como:' + moveList)
+        if(moveList==0){
+            setMove(300)
+        }
+        if(moveList==300){
+            setMove(0)
+        }
     }
     return(
         <>

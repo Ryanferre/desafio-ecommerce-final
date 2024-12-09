@@ -1,7 +1,6 @@
 import Icon from "./icon/IconHeader.png"
-import ProtectedLink from '../../ProtetedRoute'
 import { Link } from "react-router-dom";
-import { SignedIn, SignedOut, UserButton, RedirectToSignIn } from '@clerk/clerk-react'
+import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
 import AddedItencart from "./componentCart/cartAdded";
 
 /*icones */
@@ -25,7 +24,7 @@ const Header= ()=>{
                 <li className="font-semibold"><Link to="/">Home</Link></li>
                 <li className="font-semibold"><Link to="/shop">Shop</Link></li>
                 <li className="font-semibold"><Link to="">About</Link></li>
-                <li className="font-semibold">Contact</li>
+                <li className="font-semibold"><Link to="/Contact">Contact</Link></li>
             </ul>
 
             {/*user*/}

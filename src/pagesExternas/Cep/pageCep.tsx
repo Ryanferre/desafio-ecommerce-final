@@ -23,7 +23,9 @@ const PageCep = ()=>{
                     console.log(e.data)
                     SetRes(e.data)
                 }
-            )
+            ).catch((err)=>{
+                console.log(err)
+            })
         }
         getCep()
     }, [Cep])

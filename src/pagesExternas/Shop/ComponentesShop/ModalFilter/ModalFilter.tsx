@@ -2,20 +2,24 @@ import { useContext, useEffect, useState } from "react"
 import FilterItens from "../../HookCustum/ContexData"
 
 const FilterBox= ({moveBox})=>{
-    const {getData, moveMargin}= useContext(FilterItens)
+    const {getData}= useContext(FilterItens)
     const [checkedIten1, setIten1]= useState(false)
     const [checkedIten2, setIten2]= useState(false)
     const [checkedIten3, setIten3]= useState(false)
     const [checkedIten4, setIten4]= useState(false)
 
-    //obsever action
-    const [actionMove, setAction]= useState('')
+    const [Move, setMove]= useState(300)
+    console.log(Move)
+
+    const VisibleBox= ()=>{
+        if(Move==0){
+            setMove(300)
+        }
+    }
 
     useEffect(()=>{
-        setAction(moveBox)
-        console.log(actionMove)
+        setMove(moveBox)
     }, [moveBox])
-
 
     const [valid1, setvalue1]= useState(false)
     const [valid2, setvalue2]= useState(false)
@@ -103,7 +107,7 @@ const FilterBox= ({moveBox})=>{
     
     
     return(
-        <div className={`absolute inset-0 h-[75px] w-[250px] flex flex-row items-center bg-white border justify-around rounded-[10px] -ml-${actionMove}`}>
+        <div className={`absolute inset-0 h-[75px] w-[250px] flex flex-row items-center bg-white border justify-around rounded-[10px]`} style={{marginLeft: `-${Move}px`}}>
             <ul className="flex flex-row w-52 justify-around">
                 <li>
                     <label className="flex flex-col items-center justify-around h-full">
@@ -130,7 +134,7 @@ const FilterBox= ({moveBox})=>{
                     </label>
                 </li>
             </ul>
-            <button onClick={()=>setAction('96')}>
+            <button onClick={VisibleBox}>
                 <div className="flex flex-col items-center justify-center h-[20px] gap-[5.4px]">
                     <span className="content boder w-[13px] h-[2px] transition-transform -rotate-[38deg] inline-block bg-[#9F9F9F]"></span>
                     <span className="content boder w-[13px] h-[2px] transition-transform rotate-[39deg] inline-block bg-[#9F9F9F]"></span>

@@ -30,7 +30,6 @@ const ListItens=()=>{
     const AddItem = (e) => {
         setMore((prev)=> prev + 1)
         getItenscart(ItenMore)
-        console.log(ItenMore)
         dispatch({ type: "INCREMENT", payload: { id: e.currentTarget.closest('li'), name: "Novo Item" }});
     };
 

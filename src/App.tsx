@@ -12,8 +12,10 @@ function App() {
 
   // Inicializando os estados
   const [itensData, setItens] = useState<string>('');
-  const [moveModal, setMargin] = useState<string>('96');
+  const [moveModal, setMargin] = useState<string>('96');//modealFilter iniciando com -96
   const [ItensCart, setIten] = useState<number>(0);
+  const [BannerCart, setBanner]= useState<string>('hidden')
+  const [removedIten, setRemove]= useState<number>(0)
 
   // Funções para atualizar os estados
   const getData = (e: string) => {
@@ -27,14 +29,21 @@ function App() {
   const getItenscart = (e: number) => {
     setIten(e);
   };
+
+  const MoveBannerToCart= (e: string)=>{
+    setBanner(e)
+  }
+  const setRemoveIten= (e: number)=>{
+    setRemove(e)
+  }
   return (
     <>
     <Provider store={Creatreducer}>
-    <FilterItens.Provider value={{itensData, getData, moveMargin, moveModal, ItensCart, getItenscart}}>
-     <Header />
-     <Outlet />
-     <Footer />
-    </FilterItens.Provider>
+      <FilterItens.Provider value={{itensData, getData, moveMargin, moveModal, ItensCart, getItenscart, BannerCart, MoveBannerToCart, setRemoveIten}}>
+      <Header />
+      <Outlet />
+      <Footer />
+      </FilterItens.Provider>
     </Provider>
     </>
   )

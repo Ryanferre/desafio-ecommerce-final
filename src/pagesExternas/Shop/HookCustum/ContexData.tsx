@@ -6,10 +6,14 @@ interface FilterItensContextType {
   moveModal: string;
   ItensCart: number;
   IdIten: [];
+  BannerCart: string;
+  removedIten: number;
   getData: (e: string) => void;
   moveMargin: (e: string) => void;
   getItenscart: (e: number) => void;
-  setIdIten: (e: number)=> void
+  setIdIten: (e: number)=> void;
+  setRemoveIten: (e: number)=> void;
+  MoveBannerToCart: (e: string)=> void
 }
 
 // Inicializando o contexto com valores padrão e tipos
@@ -18,17 +22,23 @@ export const FilterItens = createContext<FilterItensContextType>({
   moveModal: '96',
   ItensCart: 0,
   IdIten: [],
+  removedIten: 0,
+  BannerCart: 'hidden',
   getData: () => {},
   moveMargin: () => {},
   getItenscart: () => {},
-  setIdIten: ()=> {}
+  setIdIten: ()=> {},
+  setRemoveIten: ()=> {},
+  MoveBannerToCart: ()=> {}
 });
 
 // Componente Provider para fornecer os dados do contexto
 export const ItenSearch = ({ children }: { children: ReactNode }) => {
   const [itensData, setItens] = useState<string>('');
-  const [moveModal, setMargin] = useState<string>('96');
+  const [moveModal, setMargin] = useState<string>('0');
   const [ItensCart, setIten] = useState<number>(0);
+  const [removedIten, setRemove]= useState<number>(0)
+  const [BannerCart, setBanner]= useState<string>('hidden')
 
   const getData = (evt: string) => {
     setItens(evt);
@@ -42,12 +52,16 @@ export const ItenSearch = ({ children }: { children: ReactNode }) => {
     setIten(e);
   };
 
-  useEffect(() => {
-    console.log(ItensCart); // Apenas para debug
-  }, [ItensCart]);
+  const setRemoveIten= (e: number)=>{
+    setRemove(e)
+  }
+
+  const MoveBannerToCart= (e: string)=>{
+    setBanner(e)
+  }
 
   return (
-    <FilterItens.Provider value={{ itensData, getData, moveMargin, moveModal, ItensCart, getItenscart }}>
+    <FilterItens.Provider value={{ itensData, getData, moveMargin, moveModal, ItensCart, getItenscart, setRemoveIten, removedIten, MoveBannerToCart, BannerCart }}>
       {children}
     </FilterItens.Provider>
   );

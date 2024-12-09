@@ -10,6 +10,7 @@ import PageCep from './pagesExternas/Cep/pageCep.tsx'
 import ProductPage from './pagesExternas/productPage/product.tsx'
 import { ClerkProvider } from '@clerk/clerk-react';
 import ProtectedRoute from './ProtetedRoute.tsx'
+import Contact from './pagesExternas/contact/contact.tsx'
 
 const clerkFrontendApi = "https://enjoyed-husky-33.clerk.accounts.dev";
 const publishableKey = "pk_test_ZW5qb3llZC1odXNreS0zMy5jbGVyay5hY2NvdW50cy5kZXYk"
@@ -40,6 +41,10 @@ const rounter= createBrowserRouter([
     {
       path: '/Productcart/:id',
       element: <ProductPage/>
+    },
+    {
+      path: '/Contact',
+      element: <Contact/>
     }]
   }
 ])

@@ -137,7 +137,7 @@ const ProductPage= ()=>{
                             <img className={styleListImg} src={objAplid.imgItem} />
                         </li>
                     </ul>
-                    <span className="w-[418px] h-[500px] rounded-[5px]" style={{background: `url(${objAplid.imgItem})`, backgroundSize: 'cover', backgroundPosition: 'center'}}></span>
+                    <span className="w-[418px] h-[500px] rounded-[5px]" style={{background: `url(${objAplid.imgItem})`, backgroundSize: 'contain', backgroundPosition: 'center'}}></span>
                 </div>
                 <div className="flex flex-col justify-between">
                 <div className="w-[560px] h-[560px] border-b border-b-[#D9D9D9]">
