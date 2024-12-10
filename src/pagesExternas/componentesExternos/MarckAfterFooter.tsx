@@ -1,0 +1,7 @@
+
+
+const MarckComponent= ()=>{
+    return(
+        
+    )
+}
