@@ -43,42 +43,32 @@ const ProductPage= ()=>{
                                                     })
     const {getItenscart, ItensCart}= useContext(FilterItens)
 
-    const [AddTocart, setAdd]= useState<number>(0)
-    const [removeTotal, setRemove]= useState<number>(0)
+    const [AddTocart, setAdd] = useState<number>(0);
+const [removeTotal, setRemove] = useState<number>(0);
 
-    //adicionar iten
-    const Add= ()=>{
-        setAdd((evt)=> evt+1)
+// Adicionar item
+const Add = () => {
+    setAdd((prev) => prev + 1);
+};
+
+// Remover item
+const Remove = () => {
+    if (AddTocart > 0) {
+        setAdd((prev) => prev - 1); 
+        setRemove((prev) => prev + 1); 
     }
+};
 
-    //remover iten
-    const Remove= ()=>{
-        setAdd((evt)=> evt-1)
-        if(AddTocart>0){
-            setRemove((evt=> evt+1))//armazendo a quantidade que foi retirada
-        }else{
-            setRemove(0)
-        }
-        console.log(removeTotal)
+// Adicionar total no carrinho
+const AddToCartItens = () => {
+    if (removeTotal > 0) {
+        getItenscart(ItensCart - removeTotal);
+        setRemove(0);
+    } else {
+        getItenscart(ItensCart + AddTocart);
     }
+};
 
-    //adicionar total no carrinho
-    const AddToCartItens= ()=>{
-        if(removeTotal>0){//se removeTotal for maior que 0, signifia que retirei
-            getItenscart(ItensCart-removeTotal)
-            setRemove(0)
-            console.log(removeTotal)
-        }else{
-            getItenscart(ItensCart+AddTocart)
-        }
-    }
-
-    //verificar se chegou a 0
-    useEffect(()=>{
-        if(AddTocart < 0){
-            setAdd(0)
-        }
-    }, [AddTocart])
     useEffect(()=>{
         if (itSelectd.length > 0) {
             const selectedItem = itSelectd[0]; 

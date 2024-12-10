@@ -12,7 +12,7 @@ const ModalTocart = () => {
   const dispatch = useDispatch(); // Para disparar a ação
   const {setRemoveIten, BannerCart, MoveBannerToCart}= useContext(FilterItens)
 
-  // Ação de deletar
+  // Ação para deletar
   const deleteItem = (id) => ({
     type: "DELETE",
     payload: id, // Passa o id do item para deletar
@@ -23,12 +23,16 @@ const ModalTocart = () => {
     setRemoveIten(+1)
   }
 
-  const MoveBanner= ()=>{
-    MoveBannerToCart('hidden')
+  const MoveBanner= (e)=>{
+    const getId= (e.target as HTMLElement).id
+
+    if(getId == '1'){
+      MoveBannerToCart('hidden')
+    }
   }
   return (
-    <section className={`absolute ${BannerCart} flex-row justify-end w-full h-[835px] inset-0 bg-[#20202050]`}>
-      <div className='bg-white opacity-1 h-[700px] w-[370px] pt-[30px] pb-[40px] flex flex-col justify-between'>
+    <section className={`absolute ${BannerCart} flex-row justify-end w-full h-[2540px] z-0 inset-0 bg-[#20202050]`} id="1" onClick={MoveBanner}>
+      <div className='bg-white opacity-1 h-[700px] w-[370px] pt-[30px] pb-[40px] flex flex-col z-1 justify-between' id="2">
         <div>
           <div className='flex flex-row items-center w-[320px] ml-[20px] justify-between'>
             <h1 className='font-semibold text-[24px]'>Shopping Cart</h1>

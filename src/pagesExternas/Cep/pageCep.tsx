@@ -15,13 +15,14 @@ const styleTittle= "font-semibold text-[20px]"
 const PageCep = ()=>{
     const [Cep, setCep]= useState("")
     const [ResApi, SetRes]= useState<CepData>({ Cep: "", regiao: "", logradouro: "", localidade: "", estado: ""})
+    const [visible, setvible]= useState('0')
 
     useEffect(()=>{
         const getCep= async ()=>{
             await axios.get(`https://viacep.com.br/ws/${Cep}/json/`).then(
                 (e)=>{
-                    console.log(e.data)
                     SetRes(e.data)
+                    console.log(e.data)
                 }
             ).catch((err)=>{
                 console.log(err)
@@ -29,6 +30,21 @@ const PageCep = ()=>{
         }
         getCep()
     }, [Cep])
+
+    const cepRequerid= /^[0-9]{8}$/
+
+    const validCep= (e)=>{
+        const cepDigit= e.target.value
+        if(cepRequerid.test(cepDigit)){
+            setCep(e.target.value)
+            setvible('0')
+        }else{
+            setvible('1')
+        }
+    }
+
+
+
     return(
         <section>
             <div className="w-full h-[310px] bg-contain flex flex-col items-center justify-center" style={{backgroundImage: `url(${ImgBanner}`}}>
@@ -51,59 +67,60 @@ const PageCep = ()=>{
                             <div className="flex flex-row justify-start gap-4">
                                 <label className="flex flex-col justify-between gap-3">
                                 <p>Fist Name</p>
-                                <input className="border h-[48px] w-[137px] rounded-[5px]" type="text" />
+                                <input className="border h-[48px] w-[137px] rounded-[5px] pl-[6px] outline-none" type="text" />
                                 </label>
                                 <label className="flex flex-col justify-between gap-4">
                                 <p>Last Name</p>
-                                <input className="border h-[48px] w-[137px] rounded-[5px]" type="text" />
+                                <input className="border h-[48px] w-[137px] rounded-[5px] pl-[6px] outline-none" type="text" />
                                 </label>
                             </div>
                         </li>
                         <li>
                         <label className="flex flex-col justify-between gap-2">
                             <p>Zip code</p>
-                            <input className="border h-[40px] rounded-[5px] w-[290px]" type="text" onChange={(e)=> setCep(e.target.value)} />
+                            <input className="border h-[40px] rounded-[5px] w-[290px] pl-[6px] outline-none" type="text" onChange={validCep} />
+                            <p className={`opacity-${visible} text-[14.8px] text-red-400`}>adicione um cep valido</p>
                         </label>
                         </li>
                         <li>
                         <label className="flex flex-col justify-between gap-2">
                             <p>Country / Region</p>
-                            <input className="border h-[40px] rounded-[5px] w-[290px]" type="text" value={ResApi.regiao} />
+                            <input className="border h-[40px] rounded-[5px] w-[290px] pl-[6px] outline-nonepl-[6px] outline-none" type="text" value={ResApi.regiao} />
                         </label>
                         </li>
                         <li>
                         <label className="flex flex-col justify-between gap-2">
                             <p>street address</p>
-                            <input className="border h-[40px] rounded-[5px] w-[290px]" type="text" value={ResApi.logradouro}/>
+                            <input className="border h-[40px] rounded-[5px] w-[290px] pl-[6px] outline-none" type="text" value={ResApi.logradouro}/>
                         </label>
                         </li>
                         <li>
                         <label className="flex flex-col justify-between gap-2">
                             <p>Town / city</p>
-                            <input className="border h-[40px] rounded-[5px] w-[290px]" type="text" value={ResApi.localidade}/>
+                            <input className="border h-[40px] rounded-[5px] w-[290px] pl-[6px] outline-none" type="text" value={ResApi.localidade}/>
                         </label>
                         </li>
                         <li>
                         <label className="flex flex-col justify-between gap-2">
                             <p>Province</p>
-                            <input className="border h-[40px] rounded-[5px] w-[290px]" type="text" value={ResApi.estado}/>
+                            <input className="border h-[40px] rounded-[5px] w-[290px] pl-[6px] outline-none" type="text" value={ResApi.estado}/>
                         </label>
                         </li>
                         <li>
                         <label className="flex flex-col justify-between gap-2">
                             <p>Add-on Adress</p>
-                            <input className="border h-[40px] rounded-[5px] w-[290px]" type="text" />
+                            <input className="border h-[40px] rounded-[5px] w-[290px] pl-[6px] outline-none" type="text" />
                         </label>
                         </li>
                         <li>
                         <label className="flex flex-col justify-between gap-2">
                             <p>Email adress</p>
-                            <input className="border h-[40px] rounded-[5px] w-[290px]" type="text" />
+                            <input className="border h-[40px] rounded-[5px] w-[290px] pl-[6px] outline-none" type="text" />
                         </label>
                         </li>
                         <li>
                         <label className="flex flex-col justify-end h-[60px]">
-                            <input className="border h-[40px] rounded-[5px] w-[290px]" type="text" placeholder="Additional information"/>
+                            <input className="border h-[40px] rounded-[5px] w-[290px] pl-[6px] outline-none" type="text" placeholder="Additional information"/>
                         </label>
                         </li>
                     </ul>
