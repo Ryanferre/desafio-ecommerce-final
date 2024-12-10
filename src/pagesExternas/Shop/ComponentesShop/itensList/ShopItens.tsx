@@ -20,7 +20,7 @@ const IconDescription ="text-white font-semibold text-[16px]"
 const ListItens=()=>{
     const [itens, setItens] =useState <itensJson []>([])
     const {itensData, getItenscart, ItensCart}= useContext(FilterItens)
-    const [ItenMore, setMore]= useState<number>(0)
+    const [ItenMore, setMore]= useState<number>(1)//no primeiro click, é adicionado mais 1 o mesmo acontece no outro componente
 
     const StateCart = useSelector((state) => state.Statecart);
 
@@ -46,7 +46,7 @@ const ListItens=()=>{
         axios.get(`http://localhost:3001/products?name=${itensData}`).then((response)=>{
             setItens(response.data)
         }).catch((err)=>{
-            console.log("esse"+err)
+            console.log(err)
         })
     }, [itensData])//vai ser acionado quando o dado do contexto for modificado
 

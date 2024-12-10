@@ -19,7 +19,7 @@ const IconDescription ="text-white font-semibold text-[16px]"
 const ListProctRelated= ()=>{
     const [itensl, setItens] =useState <itensJson []>([])
     const { getItenscart }= useContext(FilterItens)
-    const [ItenMore, setMore]= useState<number>(0)
+    const [ItenMore, setMore]= useState<number>(1)
 
     const StateCart = useSelector((state) => state.Statecart);
 
