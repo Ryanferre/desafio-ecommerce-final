@@ -114,17 +114,18 @@ const Carrosel = () => {
 
   return (
     <section className="flex h-[670px] flex-row items-center justify-between pl-20 bg-[#FCF8F3]">
-      <article className="mb-4 w-[700px]">
-        <div className="w-full">
-          <h5 className="font-bold text-[40px]">50+ Beautiful rooms inspiration</h5>
-          <p>Our designer already made a lot of beautiful prototypes of rooms that inspire you.</p>
+      <article className="w-[400px] h-[240px] flex flex-col justify-between">
+        <div className="w-full h-[160px] flex flex-col justify-between">
+          <h5 className="font-bold text-[40px] leading-[47px]">50+ Beautiful rooms <p>inspiration</p></h5>
+          <p className="w-[360px] text-[18px] text-[#616161] font-medium">Our designer already made a lot of beautiful prototypes of rooms that inspire you.</p>
         </div>
+        <button className="bg-[#B88E2F] w-[176px] h-[48px] text-white font-semibold">Explore More</button>
       </article>
 
-      <div className="h-[550px] w-full flex flex-row relative overflow-auto">
+      <div className="h-[520px] w-[850px] flex flex-row relative overflow-auto">
 
         {/* Div com background dinâmico */}
-        <div className="w-[420px] absolute flex flex-row h-full items-end px-4 py-4 z-10" style={{ backgroundImage: `url(${ImgCurrent})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="w-[370px] absolute flex flex-row h-full items-end px-4 py-4 z-10" style={{ backgroundImage: `url(${ImgCurrent})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="w-[280px] h-[100px] flex flex-row items-end">
             <div className="w-[200px] h-[100px] justify-center items-center flex flex-col bg-[#FFFFFF] opacity-[.9]">
               <div>
@@ -141,15 +142,15 @@ const Carrosel = () => {
         </div>
 
         {/* Swiper */}
-        <div className=" flex flex-col w-full border justify-between items-end pb-6">
-          <Swiper className="h-[486px] w-[800px]" spaceBetween={40} slidesPerView={2} onSlideChange={getImgCurret} onInit={() => setImg(ArrSlide[0].imgSrc)} loop={true}>
+        <div className=" flex flex-col w-full justify-between items-end pb-6">
+          <Swiper className="h-[450px] w-[840px]" spaceBetween={-70} slidesPerView={2} onSlideChange={getImgCurret} onInit={() => setImg(ArrSlide[0].imgSrc)} loop={true}>
             {ArrSlide.map((Element) => (
               <SwiperSlide key={Element.id} >
-                <img className="w-[490px] h-full" src={Element.imgSrc} alt={`Slide ${Element.id}`} />
+                <img className="w-[360px] h-full" src={Element.imgSrc} alt={`Slide ${Element.id}`} />
               </SwiperSlide>
             ))}
           </Swiper>
-          <ul className=" flex flex-row items-center w-[400px] gap-2">
+          <ul className=" flex flex-row items-center w-[460px] gap-2">
             <li className="flex flex-row items-center relative">
                 <input type="checkbox" id="classe1" className="hidden peer" onChange={VerifyIten1} disabled={valid1} checked={checkedIten1}/>
                 <label htmlFor="classe1" className="w-7 h-7 flex items-center justify-center rounded-full border-[1px] border-transparent cursor-pointer peer-checked:border-[#B88E2F]"></label>

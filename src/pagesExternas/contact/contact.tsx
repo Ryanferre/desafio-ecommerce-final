@@ -1,33 +1,83 @@
-import { FaFacebook } from "react-icons/fa"
-import { FaLinkedin } from "react-icons/fa"
-import { FaTwitter } from "react-icons/fa"
+import { FaLocationPin, FaPhone, FaClock } from "react-icons/fa6"
+import ImgContact from "./imgContact/ShopBanner.png"
 
 const Contact= ()=>{
     return(
         <section>
-             <div className="m-auto bg-[#FFF3E3] w-[400px] h-[300px] flex flex-col items-center my-20 justify-start gap-9 rounded-[15px]">
-            <div>
-                <h1 className="text-[52px] text-center w-full text-[#B88E2F] font-bold">Wellcome!</h1>
-                <p className="text-center text-[#9F9F9F]">Log in with your social network</p>
+            <div className="w-full h-[310px] bg-contain flex flex-col items-center justify-center" style={{backgroundImage: `url(${ImgContact}`}}>
+                <h1 className="font-semibold text-[44px]">Contact</h1>
+                <div className="flex flex-row items-center justify-around w-[120px]">
+                    <p className="font-semibold text-[16px]">Home</p>
+                    <div className="flex flex-col items-center justify-center h-[20px] gap-[3px] mt-[4px]">
+                        <span className="content boder w-[10.4px] h-[2px] transition-transform rotate-[38deg] inline-block bg-black"></span>
+                        <span className="content boder w-[10.4px] h-[2px] transition-transform -rotate-[39deg] inline-block bg-black"></span>
+                    </div>
+                    <p>Contact</p>
+                </div>
             </div>
-             <ul className="flex flex-row w-[240px] justify-around h-[50px]">
-                <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://pt-br.facebook.com/login/device-based/regular/login/&ved=2ahUKEwi9nNPwq5uKAxWtppUCHXAYLrQQjBB6BAgREAE&usg=AOvVaw2MezuOQmbz6LjDCjlRi0-K" className="border py-[4px] px-[16px] rounded-[50px] flex items-center justify-center" style={{boxShadow: '1px 2px 3px gray'}}>
-                    <li>
-                        <FaFacebook />
-                    </li>
-                </a>
-                <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://br.linkedin.com/company/login&ved=2ahUKEwjp15KBrJuKAxXDrZUCHeKHDewQjBB6BAgQEAE&usg=AOvVaw3nMEdONgcpgqgK2S1gXGj_" className="border py-[4px] px-[16px] rounded-[50px] flex items-center justify-center" style={{boxShadow: '1px 2px 3px gray'}}>
-                    <li>
-                        <FaLinkedin />
-                    </li>
-                </a>
-                <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://github.com/&ved=2ahUKEwi1h-qsrJuKAxWtu5UCHcK6AZ8QFnoECAwQAQ&usg=AOvVaw38IHvcyBra8HGhmSxvlCGw" className="border py-[4px] px-[16px] rounded-[50px] flex items-center justify-center" style={{boxShadow: '1px 2px 3px gray'}}>
-                    <li>
-                        <FaTwitter />
-                    </li>
-                </a>
-             </ul>
-         </div>
+            <div>
+                <div>
+                    <h2>Get In Touch With Us</h2>
+                    <p>For More Information About Our Product & Services.
+                         Please Feel Free To Drop Us An Email. Our Staff
+                          Always Be There To Help You Out. Do Not Hesitate!</p>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <FaLocationPin />
+                            <label>
+                                <p>Address</p>
+                                <p>236 5th SE Avenue, New York NY10000, United States</p>
+                            </label>
+                        </li>
+                        <li>
+                            <FaPhone />
+                            <label>
+                                <p>Phone</p>
+                                <p>Mobile: +(84) 546-6789
+                                   Hotline: +(84) 456-6789</p>
+                            </label>
+                        </li>
+                        <li>
+                            <FaClock />
+                            <label>
+                                <p>Monday-Friday: 9:00 - 22:00
+                                   Saturday-Sunday: 9:00 - 21:00</p>
+                            </label>
+                        </li>
+                    </ul>
+                    <div>
+                        <ul>
+                            <li>
+                                <label>
+                                    <p>Your name</p>
+                                    <input type="texte" />
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <p>Your name</p>
+                                    <input type="texte" />
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <p>Your name</p>
+                                    <input type="texte" />
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <p>Your name</p>
+                                    <input type="texte" />
+                                </label>
+                            </li>
+                        </ul>
+                        <button>Submit</button>
+                    </div>
+                </div>
+            </div>
         </section>
     )
 }

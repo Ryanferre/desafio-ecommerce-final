@@ -10,6 +10,7 @@ import ImgIten8 from "./ImgItens/image8.png"
 
 
 export type ItensType ={
+    id: number,
     titleIten: string,
     NameIten: string,
     Price: string,
@@ -20,6 +21,7 @@ export type ItensType ={
 export const ArrListItens: ItensType[] = [
     
     {
+    id: 1,
     titleIten: "Syltherine",
     NameIten: "Stylish cafe chair",
     Price: "Rp 2.500.000",
@@ -28,6 +30,7 @@ export const ArrListItens: ItensType[] = [
     },
 
    {
+    id: 2,
     titleIten: "Leviosa",
     NameIten: "Stylish cafe chair",
     Price: "Rp 2.500.000",
@@ -36,6 +39,7 @@ export const ArrListItens: ItensType[] = [
    },
 
    {
+    id: 3,
     titleIten: "Lolito",
     NameIten: "Luxury big sofa",
     Price: "Rp 7.000.000",
@@ -44,6 +48,7 @@ export const ArrListItens: ItensType[] = [
    },
 
    {
+    id: 4,
     titleIten: "Respira",
     NameIten: "Outdoor bar table and stool",
     Price: "Rp 500.000",
@@ -52,6 +57,7 @@ export const ArrListItens: ItensType[] = [
    },
 
    {
+    id: 5,
     titleIten: "Grifo",
     NameIten: "Night lamp",
     Price: "Rp 1.500.000",
@@ -60,6 +66,7 @@ export const ArrListItens: ItensType[] = [
    },
 
     {
+    id: 5,
     titleIten: "Muggo",
     NameIten: "Small mug",
     Price: "Rp 150.000",
@@ -68,6 +75,7 @@ export const ArrListItens: ItensType[] = [
     },
 
    {
+    id: 6,
     titleIten: "Pingky",
     NameIten: "Cute bed set",
     Price: "Rp 7.000.000",
@@ -76,6 +84,7 @@ export const ArrListItens: ItensType[] = [
    },
 
    {
+    id: 7,
     titleIten: "Potty",
     NameIten: "Minimalist flower pot",
     Price: "Rp 500.000",

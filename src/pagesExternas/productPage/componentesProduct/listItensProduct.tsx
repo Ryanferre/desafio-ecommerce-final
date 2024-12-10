@@ -18,7 +18,7 @@ const IconDescription ="text-white font-semibold text-[16px]"
 
 const ListProctRelated= ()=>{
     const [itensl, setItens] =useState <itensJson []>([])
-    const { getItenscart, ItensCart}= useContext(FilterItens)
+    const { getItenscart }= useContext(FilterItens)
     const [ItenMore, setMore]= useState<number>(0)
 
     const StateCart = useSelector((state) => state.Statecart);
@@ -29,7 +29,6 @@ const ListProctRelated= ()=>{
     const AddItem = (e) => {
         setMore((prev)=> prev + 1)
         getItenscart(ItenMore)
-        console.log(itensl)
         const findElement= e.currentTarget.closest('li')
         const idElement= findElement.id
 
