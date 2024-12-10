@@ -1,5 +1,6 @@
 import { FaLocationPin, FaPhone, FaClock } from "react-icons/fa6"
 import ImgContact from "./imgContact/ShopBanner.png"
+import MarckComponent from "../componentesExternos/MarckAfterFooter"
 
 
 const styleTitlleIten= 'font-semibold text-[19px]'
@@ -10,7 +11,8 @@ const StylelabelInputs= 'h-[100px] flex flex-col justify-between'
 const StyleTitlleInput= 'text-[16px] font-semibold'
 const Contact= ()=>{
     return(
-        <section>
+        <>
+          <section>
             <div className="w-full h-[310px] bg-contain flex flex-col items-center justify-center" style={{backgroundImage: `url(${ImgContact}`}}>
                 <h1 className="font-semibold text-[44px]">Contact</h1>
                 <div className="flex flex-row items-center justify-around w-[120px]">
@@ -86,7 +88,9 @@ const Contact= ()=>{
                     </div>
                 </div>
             </div>
-        </section>
+          </section>
+          <MarckComponent />
+        </>
     )
 }
 

@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 
 const NavList= ()=>{
     return(
@@ -7,10 +7,10 @@ const NavList= ()=>{
             <nav className="h-[270px] flex flex-col gap-[45px] mt-[8px]">
                 <p className="font-semibold text-[#9F9F9F]">Links</p>
                 <ul className="flex flex-col justify-between h-full">
-                    <li className="font-semibold">Home</li>
-                    <li className="font-semibold">Shop</li>
-                    <li className="font-semibold">About</li>
-                    <li className="font-semibold">Contact</li>
+                <li className="font-semibold"><Link to="/">Home</Link></li>
+                <li className="font-semibold"><Link to="/shop">Shop</Link></li>
+                <li className="font-semibold"><Link to="">About</Link></li>
+                <li className="font-semibold"><Link to="/Contact">Contact</Link></li>
                 </ul>
             </nav>
             <nav className="h-[210px] flex flex-col gap-[45px] mt-[8px]">
