@@ -18,10 +18,11 @@ const IconDescription ="text-white font-semibold text-[16px]"
 
 const ListProctRelated= ()=>{
     const [itensl, setItens] =useState <itensJson []>([])
-    const { getItenscart }= useContext(FilterItens)
+    const { getItenscart, ItensCart }= useContext(FilterItens)
     const [ItenMore, setMore]= useState<number>(1)
 
-    const StateCart = useSelector((state) => state.Statecart);
+
+
 
     const dispatch = useDispatch();
 
@@ -41,7 +42,6 @@ const ListProctRelated= ()=>{
         
             axios.get("http://localhost:3001/products?_start=0&_limit=4").then((response)=>{
                 setItens(response.data)
-                console.log(response.data)
             }).catch((err)=>{
                 console.log(err)
             })

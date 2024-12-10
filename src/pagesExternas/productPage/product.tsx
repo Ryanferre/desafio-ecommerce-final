@@ -44,7 +44,7 @@ const ProductPage= ()=>{
     const {getItenscart, ItensCart}= useContext(FilterItens)
 
     const [AddTocart, setAdd] = useState<number>(0);
-const [removeTotal, setRemove] = useState<number>(0);
+    const [removeTotal, setRemove] = useState<number>(0);
 
 // Adicionar item
 const Add = () => {

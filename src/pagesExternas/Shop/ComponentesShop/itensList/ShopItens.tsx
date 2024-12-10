@@ -27,7 +27,7 @@ const ListItens=()=>{
     const dispatch = useDispatch();
 
 
-    const AddItem = (e) => {
+    const AddItem = (e) => {//aqui estou adicionando
         setMore((prev)=> prev + 1)
         getItenscart(ItenMore)
         dispatch({ type: "INCREMENT", payload: { id: e.currentTarget.closest('li'), name: "Novo Item" }});
