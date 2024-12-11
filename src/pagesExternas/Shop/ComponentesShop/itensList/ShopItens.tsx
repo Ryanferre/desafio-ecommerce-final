@@ -19,7 +19,7 @@ const IconDescription ="text-white font-semibold text-[16px]"
 
 const ListItens=()=>{
     const [itens, setItens] =useState <itensJson []>([])
-    const {itensData, getItenscart, ItensCart}= useContext(FilterItens)
+    const {itensData, getItenscart }= useContext(FilterItens)
     const [ItenMore, setMore]= useState<number>(1)//no primeiro click, é adicionado mais 1 o mesmo acontece no outro componente
 
     const StateCart = useSelector((state) => state.Statecart);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import ImgBanner from "../imgBanner/ShopBanner.png"
 import axios from "axios"
+import MarckComponent from "../componentesExternos/MarckAfterFooter"
 
 type CepData= {
     Cep: string,
@@ -46,6 +47,7 @@ const PageCep = ()=>{
 
 
     return(
+        <>
         <section>
             <div className="w-full h-[310px] bg-contain flex flex-col items-center justify-center" style={{backgroundImage: `url(${ImgBanner}`}}>
                 <h1 className="font-semibold text-[44px]">Checkout</h1>
@@ -171,6 +173,8 @@ const PageCep = ()=>{
                 </div>
             </div>
         </section>
+        <MarckComponent />
+        </>
     )
 }
 

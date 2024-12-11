@@ -1,15 +1,15 @@
-import { createContext, useState, ReactNode, useEffect } from "react";
+import { createContext, useState, ReactNode } from "react";
 
 // Definindo o tipo para o contexto
 interface FilterItensContextType {
   itensData: string;
-  moveModal: string;
+  moveModal: number;
   ItensCart: number;
   IdIten: [];
   BannerCart: string;
   removedIten: number;
   getData: (e: string) => void;
-  moveMargin: (e: string) => void;
+  moveMargin: (e: number) => void;
   getItenscart: (e: number) => void;
   setIdIten: (e: number)=> void;
   setRemoveIten: (e: number)=> void;
@@ -19,7 +19,7 @@ interface FilterItensContextType {
 // Inicializando o contexto com valores padrão e tipos
 export const FilterItens = createContext<FilterItensContextType>({
   itensData: '',
-  moveModal: '96',
+  moveModal: 96,
   ItensCart: 0,
   IdIten: [],
   removedIten: 0,
@@ -35,7 +35,7 @@ export const FilterItens = createContext<FilterItensContextType>({
 // Componente Provider para fornecer os dados do contexto
 export const ItenSearch = ({ children }: { children: ReactNode }) => {
   const [itensData, setItens] = useState<string>('');
-  const [moveModal, setMargin] = useState<string>('0');
+  const [moveModal, setMargin] = useState<number>(0);
   const [ItensCart, setIten] = useState<number>(0);
   const [removedIten, setRemove]= useState<number>(0)
   const [BannerCart, setBanner]= useState<string>('hidden')
@@ -44,7 +44,7 @@ export const ItenSearch = ({ children }: { children: ReactNode }) => {
     setItens(evt);
   };
 
-  const moveMargin = (evt: string) => {
+  const moveMargin = (evt: number) => {
     setMargin(evt);
   };
 
@@ -61,7 +61,7 @@ export const ItenSearch = ({ children }: { children: ReactNode }) => {
   }
 
   return (
-    <FilterItens.Provider value={{ itensData, getData, moveMargin, moveModal, ItensCart, getItenscart, setRemoveIten, removedIten, MoveBannerToCart, BannerCart }}>
+    <FilterItens.Provider value={{ itensData, getData, moveMargin, moveModal, ItensCart, getItenscart, setRemoveIten, removedIten, MoveBannerToCart, BannerCart}}>
       {children}
     </FilterItens.Provider>
   );

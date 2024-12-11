@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { FaTrash } from "react-icons/fa6";
 
 
 type FilterElement = {
@@ -96,6 +97,7 @@ const Cart = ()=>{
         setItenRepeated((prevState) =>
           prevState.map((item) => item.filterElement.id === id && item.filterElement.Quant > 0 ? {...item, filterElement: {...item.filterElement, Quant: item.filterElement.Quant - 1, }, } : item));
       };
+
     return(
         <>
           <div className="w-full h-[310px] bg-contain flex flex-col items-center justify-center" style={{backgroundImage: `url(https://primertesteryan.s3.us-east-2.amazonaws.com/ShopBanner.png`}}>
@@ -109,50 +111,51 @@ const Cart = ()=>{
                     <p>Shop</p>
                 </div>
             </div>
-            <section className="flex flex-row">
-                <div>
-                    <ul>
-                        <li>
-                            <p>Product</p>
-                        </li>
-                        <li>
-                            <p>Price</p>
-                        </li>
-                        <li>
-                            <p>Quantity</p>
-                        </li>
-                        <li>
-                            <p>Subtotal</p>
-                        </li>
-                    </ul>
-                    <ul className="flex flex-col overflow-auto">
-                        {filterRepeated.map((element)=>(
-                            <li className="flex flex-row">
-                                <img className="w-[100px] rounded-[5px]" src={element.filterElement.imgItem} />
-                                <p>{element.filterElement.titleName}</p>
-                                <p>{element.filterElement.priceDiscount}</p>
-                                <div className="w-[385px] h-[60px] justify-between flex flex-row mt-7">
-                                    <div className="flex flex-row justify-around items-center w-[110px] border rounded-[8px]">
-                                        <button onClick={() => decrementQuant(element.filterElement.id)}>-</button>
-                                        <p>{element.filterElement.Quant}</p>
-                                        <button onClick={() => incrementQuant(element.filterElement.id)}>+</button>
-                                    </div>
-                               </div>
-                               <p>{removeTotal}</p>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <div>
-                    <h2>Cart Totals</h2>
-                    <div>
-                        <p>Subtotal</p>
-                        <p>Rs {removeTotal}</p>
-                    </div>
-                    <div>
-                        <p>Total</p>
-                        <p>Rs. 250,000.00</p>
-                    </div>
+            <section className="flex flex-row h-[600px] items-center justify-center px-28">
+                <div className="flex flex-row w-full justify-between">
+                  <div className="flex flex-col h-[350px] w-[700px] items-center justify-between">
+                      <ul className="flex flex-row w-full bg-[#F9F1E7] justify-around py-4 px-[120px] gap-5">
+                          <li>
+                              <p>Product</p>
+                          </li>
+                          <li>
+                              <p>Price</p>
+                          </li>
+                          <li className="flex flex-row w-[170px] justify-between">
+                              <p>Quantity</p>
+                              <p>Subtotal</p>
+                          </li>
+                      </ul>
+                      <ul className="flex flex-col overflow-auto h-[250px]">
+                          {filterRepeated.map((element)=>(
+                              <li className="flex flex-row items-center justify-between w-[690px] pr-10">
+                                  <img className="w-[100px] rounded-[5px]" src={element.filterElement.imgItem} />
+                                  <p>{element.filterElement.titleName}</p>
+                                  <p>{element.filterElement.priceDiscount}</p>
+                                  <div className="w-[215px] h-[60px] justify-between items-center flex flex-row">
+                                      <div className="flex h-full flex-row justify-around items-center w-[110px] border rounded-[8px]">
+                                          <button onClick={() => decrementQuant(element.filterElement.id)}>-</button>
+                                          <p>{element.filterElement.Quant}</p>
+                                          <button onClick={() => incrementQuant(element.filterElement.id)}>+</button>
+                                      </div>
+                                      <p>Rs. {removeTotal}</p>
+                                </div>
+                                <FaTrash color="#B88E2F" />
+                              </li>
+                          ))}
+                      </ul>
+                  </div>
+                  <div className="bg-[#F9F1E7] w-[380px] h-[380px]">
+                      <h2>Cart Totals</h2>
+                      <div>
+                          <p>Subtotal</p>
+                          <p>Rs {removeTotal}</p>
+                      </div>
+                      <div>
+                          <p>Total</p>
+                          <p>Rs. 250,000.00</p>
+                      </div>
+                  </div>
                 </div>
             </section>
             <MarckComponent />

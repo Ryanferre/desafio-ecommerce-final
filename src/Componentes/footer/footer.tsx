@@ -22,19 +22,19 @@ const Footer= ()=>{
 
                     <ul className="flex flex-row w-[169px] justify-between">
                         <li className="border p-[8px] rounded-[50px]" style={{boxShadow: '1px 2px 3px gray'}}>
-                            <FaFacebook />
+                            <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://pt-br.facebook.com/login/device-based/regular/login/&ved=2ahUKEwj5i8impKCKAxULO7kGHdn7HkUQmuEJegQIEhAB&usg=AOvVaw2MezuOQmbz6LjDCjlRi0-K"><FaFacebook /></a>
                         </li>
 
                         <li className="border p-[8px] rounded-[50px]" style={{boxShadow: '1px 2px 3px gray'}}>
-                            <FaInstagram />
+                            <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.prod.instagram.com/accounts/login/%3Fnext%3D%252Fglobalnews%252Ffeed%252F%26source%3Dprofile_feed_tab%26hl%3Dpt-br&ved=2ahUKEwiHxr6wpKCKAxWTEbkGHVhDCdAQjBB6BAgNEAE&usg=AOvVaw2c_PcfotKRmSY3c9GbY6Su"><FaInstagram /></a>
                         </li>
 
                         <li className="border p-[8px] rounded-[50px]" style={{boxShadow: '1px 2px 3px gray'}}>
-                            <FaTwitter />
+                            <a href=""><FaTwitter /></a>
                         </li>
 
                         <li className="border p-[8px] rounded-[50px]" style={{boxShadow: '1px 2px 3px gray'}}>
-                            <FaLinkedin />
+                            <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://br.linkedin.com/company/login&ved=2ahUKEwiMmZ2xo6CKAxUiG7kGHY3CMwYQmuEJegQIEhAB&usg=AOvVaw3nMEdONgcpgqgK2S1gXGj_"><FaLinkedin /></a>
                         </li>
                     </ul>
                </div>

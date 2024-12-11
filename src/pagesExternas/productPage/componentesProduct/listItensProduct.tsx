@@ -30,6 +30,8 @@ const ListProctRelated= ()=>{
     const AddItem = (e) => {
         setMore((prev)=> prev + 1)
         getItenscart(ItenMore)
+
+        console.log(ItensCart)
         const findElement= e.currentTarget.closest('li')
         const idElement= findElement.id
 
@@ -60,8 +62,8 @@ const ListProctRelated= ()=>{
                             <p className="font-semibold text-[19px]">{Productsl.titleName}</p>
                             <p>{Productsl.description}</p>
                             <div className="flex flex-row items-center w-full justify-between">
-                            <p className="font-semibold text-[19px]">{Productsl.priceDiscount}</p>
-                              <s className="text-[#898989] font-medium text-[16px]">{Productsl.priceTotal}</s>
+                              <p className="font-semibold text-[19px]">{Productsl.priceDiscount}</p>
+                              <p className="text-[#898989] font-medium text-[16px]">{Productsl.priceTotal}</p>
                             </div>
                           </div>
                           </Link>

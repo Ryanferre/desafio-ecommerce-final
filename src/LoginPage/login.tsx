@@ -15,12 +15,6 @@ const Login= ()=>{
                  <p className="w-[150px] text-[#9F9F9F]">Google Acount</p>
                 </span>
              </SignInButton>
-             <SignInButton>
-                <span className="border flex items-center justify-around bg-white py-2 px-5 rounded-[8px] shadow cursor-pointer">
-                 <FaFacebook className="w-6 h-6" />
-                 <p className="w-[150px] text-[#9F9F9F]">Facebook Acount</p>
-                </span>
-             </SignInButton>
             </div>
          </div>
     )

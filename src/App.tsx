@@ -12,7 +12,7 @@ function App() {
 
   // Inicializando os estados
   const [itensData, setItens] = useState<string>('');
-  const [moveModal, setMargin] = useState<string>('96');//modealFilter iniciando com -96
+  const [moveModal, setMargin] = useState<number>(96);//modalFilter iniciando com -96
   const [ItensCart, setIten] = useState<number>(0);
   const [BannerCart, setBanner]= useState<string>('hidden')
   const [removedIten, setRemove]= useState<number>(0)
@@ -22,7 +22,7 @@ function App() {
     setItens(e);
   };
 
-  const moveMargin = (e: string) => {
+  const moveMargin = (e: number) => {
     setMargin(e);
   };
 

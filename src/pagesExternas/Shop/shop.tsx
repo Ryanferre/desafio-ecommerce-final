@@ -1,22 +1,22 @@
-import { useContext, useState } from "react"
+import { useState } from "react"
 import ShopBanner from "../imgBanner/ShopBanner.png"
 import ListItens from "./ComponentesShop/itensList/ShopItens"
 import FilterBox from "./ComponentesShop/ModalFilter/ModalFilter"
+import MarckComponent from "../componentesExternos/MarckAfterFooter"
 
 const ShopItens= ()=>{
-    const [moveList, setMove]= useState(0)
+    const [moveList, setMove]= useState(300)
 
     const checkedMove= ()=>{
-        if(moveList==0){
-            setMove(300)
-        }
-        if(moveList==300){
-            setMove(0)
+        if (moveList === 0) {
+            setMove(300);
+        } else if (moveList === 300) {
+            setMove(0);
         }
     }
     return(
         <>
-         <section>
+         <section className="mb-4">
             <div className="w-full h-[310px] bg-contain flex flex-col items-center justify-center" style={{backgroundImage: `url(${ShopBanner}`}}>
                 <h1 className="font-semibold text-[44px]">Shop</h1>
                 <div className="flex flex-row items-center justify-around w-[120px]">
@@ -60,6 +60,7 @@ const ShopItens= ()=>{
             </section>
             <ListItens />
          </section>
+         <MarckComponent />
         </>
     )
 }

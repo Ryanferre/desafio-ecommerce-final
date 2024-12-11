@@ -1,8 +1,7 @@
-import Banner from './BannerImg/BannerImg.png'
 
 const BannerSection= ()=>{
     return(
-        <section className="w-full h-[720px] flex flex-row justify-end items-center pr-10" style={{backgroundImage: `URL(${Banner})`, backgroundPosition: 'contain'}}>
+        <section className="w-full h-[720px] flex flex-row justify-end items-center pr-10" style={{backgroundImage: `URL("https://primertesteryan.s3.us-east-2.amazonaws.com/Documents/BannerImg.png")`, backgroundPosition: 'contain'}}>
             <div className="bg-[#FFF3E3] w-[643px] h-[460px] flex flex-col items-start justify-between p-10 mt-6 rounded-[15px]">
                 <article className="h-[250px] mt-[20px]">
                     <p className="font-semibold tracking-[2px]" style={{textIndent: '3px'}}>New Arrival</p>
