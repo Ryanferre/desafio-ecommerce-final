@@ -42,6 +42,10 @@ const ProductPage= ()=>{
                                                         imgItem: ''
                                                     })
     const {getItenscart, ItensCart}= useContext(FilterItens)
+    const [ImgCover, setCover]= useState('')
+    useEffect(()=>{
+        setCover('cover')
+    }, [])
 
     const [AddTocart, setAdd] = useState<number>(0);
     const [removeTotal, setRemove] = useState<number>(0);
@@ -127,7 +131,7 @@ const AddToCartItens = () => {
                             <img className={styleListImg} src={objAplid.imgItem} />
                         </li>
                     </ul>
-                    <span className="w-[418px] h-[500px] rounded-[5px]" style={{background: `url(${objAplid.imgItem})`, backgroundSize: 'contain', backgroundPosition: 'center'}}></span>
+                    <span className="w-[418px] h-[500px] rounded-[5px]" style={{background: `url(${objAplid.imgItem})`, backgroundSize: `${ImgCover}`}}></span>
                 </div>
                 <div className="flex flex-col justify-between">
                 <div className="w-[560px] h-[560px] border-b border-b-[#D9D9D9]">

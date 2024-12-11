@@ -5,13 +5,11 @@ interface FilterItensContextType {
   itensData: string;
   moveModal: number;
   ItensCart: number;
-  IdIten: [];
   BannerCart: string;
   removedIten: number;
   getData: (e: string) => void;
   moveMargin: (e: number) => void;
   getItenscart: (e: number) => void;
-  setIdIten: (e: number)=> void;
   setRemoveIten: (e: number)=> void;
   MoveBannerToCart: (e: string)=> void
 }
@@ -21,13 +19,11 @@ export const FilterItens = createContext<FilterItensContextType>({
   itensData: '',
   moveModal: 96,
   ItensCart: 0,
-  IdIten: [],
   removedIten: 0,
   BannerCart: 'hidden',
   getData: () => {},
   moveMargin: () => {},
   getItenscart: () => {},
-  setIdIten: ()=> {},
   setRemoveIten: ()=> {},
   MoveBannerToCart: ()=> {}
 });

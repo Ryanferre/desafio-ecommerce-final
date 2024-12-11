@@ -1,5 +1,5 @@
 import { SignInButton } from "@clerk/clerk-react"
-import { FaGoogle, FaFacebook } from "react-icons/fa"
+import { FaGoogle } from "react-icons/fa"
 
 const Login= ()=>{
     return(
