@@ -63,10 +63,16 @@ const Cart = ()=>{
 
 
       useEffect(()=>{
-        filterRepeated.map((element)=>{
-            
-        })
-      })
+          const valuePrice= filterRepeated.map((element)=>(
+            element.filterElement.priceDiscount.split(' ')
+          ))
+
+          const removeIndex= valuePrice.map(arr => parseFloat(arr.slice(1)[0].replace(/\./g, '')))
+          //limpar o preço
+          const ReturnResul= removeIndex.reduce((accumulated, ValueTotal)=>  accumulated + ValueTotal, 0)
+
+          setRemove(ReturnResul)
+      }, [filterRepeated])
 
       //Incrementa o valor de Quant
       const incrementQuant = (id: number) => {
@@ -119,19 +125,20 @@ const Cart = ()=>{
                             <p>Subtotal</p>
                         </li>
                     </ul>
-                    <ul>
+                    <ul className="flex flex-col overflow-auto">
                         {filterRepeated.map((element)=>(
-                            <li>
-                                <img src={element.filterElement.imgItem} />
+                            <li className="flex flex-row">
+                                <img className="w-[100px] rounded-[5px]" src={element.filterElement.imgItem} />
                                 <p>{element.filterElement.titleName}</p>
+                                <p>{element.filterElement.priceDiscount}</p>
                                 <div className="w-[385px] h-[60px] justify-between flex flex-row mt-7">
                                     <div className="flex flex-row justify-around items-center w-[110px] border rounded-[8px]">
                                         <button onClick={() => decrementQuant(element.filterElement.id)}>-</button>
                                         <p>{element.filterElement.Quant}</p>
                                         <button onClick={() => incrementQuant(element.filterElement.id)}>+</button>
                                     </div>
-                                    <button className="border border-black rounded-[8px] w-[255px] text-[20px] font-medium">Add To Cart</button>
                                </div>
+                               <p>{removeTotal}</p>
                             </li>
                         ))}
                     </ul>
@@ -140,7 +147,7 @@ const Cart = ()=>{
                     <h2>Cart Totals</h2>
                     <div>
                         <p>Subtotal</p>
-                        <p>{}</p>
+                        <p>Rs {removeTotal}</p>
                     </div>
                     <div>
                         <p>Total</p>

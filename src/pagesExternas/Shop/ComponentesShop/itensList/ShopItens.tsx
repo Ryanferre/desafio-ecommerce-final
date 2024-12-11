@@ -29,8 +29,11 @@ const ListItens=()=>{
 
     const AddItem = (e) => {//aqui estou adicionando
         setMore((prev)=> prev + 1)
+        getItenscart(ItenMore)
         const findElement= e.currentTarget.closest('li')
         const idElement= findElement.id
+
+        console.log(idElement)
 
         const filterElement = itens.find((objeto) => objeto.id === idElement)
 
@@ -54,11 +57,12 @@ const ListItens=()=>{
         })
     }, [itensData])//vai ser acionado quando o dado do contexto for modificado
 
+
     return(
         <section className="px-[80px] pt-[70px]">
             <ul className="flex flex-row justify-around flex-wrap gap-4">
                 {itens.map((Products)=>(
-                        <li className="w-[265px] relative" key={Products.id}>
+                        <li className="w-[265px] relative" key={Products.id} id={`${Products.id}`}>
                         {/*conteudo do json server */}
                         <div className="flex flex-col items-center bg-[#F4F5F7]">
                           <img className="w-full" src={Products.imgItem} />
