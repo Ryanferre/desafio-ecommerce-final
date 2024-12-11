@@ -29,8 +29,12 @@ const ListItens=()=>{
 
     const AddItem = (e) => {//aqui estou adicionando
         setMore((prev)=> prev + 1)
-        getItenscart(ItenMore)
-        dispatch({ type: "INCREMENT", payload: { id: e.currentTarget.closest('li'), name: "Novo Item" }});
+        const findElement= e.currentTarget.closest('li')
+        const idElement= findElement.id
+
+        const filterElement = itens.find((objeto) => objeto.id === idElement)
+
+        dispatch({ type: "INCREMENT", payload: { filterElement }});
     };
 
     useEffect(()=>{

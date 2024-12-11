@@ -5,13 +5,14 @@ import ProtectedLink from '../../../ProtetedRoute';
 import { useContext } from 'react';
 import FilterItens from '../../Shop/HookCustum/ContexData';
 import { useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom';
 
 type FilterElement = {
   id: number;
   titleName: string;
   priceDiscount: string;
   imgItem: string;
+  Quant: number
 };
 
 type ItensCart = {
@@ -47,7 +48,7 @@ const ModalTocart = () => {
     const [AddTocart, setAdd] = useState<number>(0);
     const [removeTotal, setRemove] = useState<number>(0);
     const [AddRepeated, setRepeated] = useState<string []> ([]);
-    const [filterRepeated, setItenRepeated]= useState<ItensCart []>([])
+    const [filterRepeated, setItenRepeated]= useState<ItensCart []>([]);
 
     const StateCart = useSelector((state) => state.Statecart);
 
@@ -65,12 +66,26 @@ const ModalTocart = () => {
         elemnt.filterElement.id
       ))
       setRepeated(f)
+
       const filterRepeatedItem= products.filter((element, i, s)=>(//seleciona somente um elemento
         i === s.findIndex((e) => e.filterElement.id === element.filterElement.id)
-      ))
+      )).map((element) => ({...element,...element.filterElement, Quant: 0}));
 
       setItenRepeated(filterRepeatedItem)
     }, [products])
+
+    useEffect(()=>{
+      const updatedProducts = [...products]; // Faz uma cópia
+
+      for (let i = 0; i < updatedProducts.length; i++) {
+        // Conta quantas vezes o id aparece no array AddRepeated
+        const count = AddRepeated.filter((id) => id === updatedProducts[i].filterElement.id).length;
+    
+        // Atualiza a propriedade newProperty com a contagem
+        updatedProducts[i].filterElement.Quant = count;
+      }
+      
+    }, [AddRepeated])
 
     
     // Remover item
@@ -103,7 +118,11 @@ const ModalTocart = () => {
                 return (
                   <div key={i} className="w-10 h-10 flex flex-row">
                     <p>{product.filterElement.titleName}</p> {/* Exibindo o título do produto */}
-                    <p>{product.filterElement.priceDiscount}</p> {/* Exibindo o preço com desconto */}
+                    <div>
+                      <p>{product.filterElement.priceDiscount}</p>
+                      <p>X</p>
+                      <p>{product.filterElement.Quant}</p>
+                    </div>
                     <img src={product.filterElement.imgItem} alt={product.filterElement.titleName} /> {/* Exibindo a imagem */}
                     <button onClick={() => RemoveItem(product.filterElement.id)}><FaTimes /></button> {/* Passa o id do produto */}
                   </div>
@@ -121,7 +140,7 @@ const ModalTocart = () => {
         <span className='w-full h-[1px] bg-[#9F9F9F]'></span>
         <ul className='flex flex-row w-[320px] ml-[20px] justify-between'>
           <li>
-            <button className='border border-black rounded-[50px] px-[30px] py-[5px]'>Cart</button>
+            <button className='border border-black rounded-[50px] px-[30px] py-[5px]'><Link to="/Cart">Cart</Link></button>
           </li>
           <li>
             <ProtectedLink to="/Adress"><button className='border border-black rounded-[50px] px-[20px] py-[5px]'>Checkout</button></ProtectedLink>
