@@ -1,4 +1,3 @@
-import Footer from "../Componentes/footer/footer.tsx";
 import BannerSection from "./Componentes/SectionBanner/Banner.tsx";
 import BrowserHome from "./Componentes/BrowserRanger/BrowserRanger.tsx";
 import Destaque from "./Componentes/Productsdestac/ProductsHome.tsx";
@@ -13,7 +12,6 @@ const HomePage= ()=>{
          <Destaque />
          <Carrosel />
          <FileImg />
-         <Footer />
         </>
     )
 }

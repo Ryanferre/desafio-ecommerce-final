@@ -146,7 +146,7 @@ const ModalTocart = () => {
           </div>
           <div className='flex flex-row w-[280px] justify-between'>
             <p className='text-[16px] font-semibold'>Subtotal</p>
-            <p className='text-[#B88E2F] text-[16px] font-semibold'>{filterRepeated.map((e)=> (e.filterElement.priceDiscount.split('Rp')))}</p>
+            <p className='text-[#B88E2F] text-[16px] font-semibold'>{filterRepeated.map((e) => parseFloat(e.filterElement.priceDiscount.split('Rp')[1].replace(/\./g, ''))).reduce((acc, curr) => acc + curr, 0)}</p>
           </div>
         </div>
         

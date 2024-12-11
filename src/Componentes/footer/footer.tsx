@@ -30,7 +30,7 @@ const Footer= ()=>{
                         </li>
 
                         <li className="border p-[8px] rounded-[50px]" style={{boxShadow: '1px 2px 3px gray'}}>
-                            <a href=""><FaTwitter /></a>
+                            <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://twitter.com/i/flow/login&ved=2ahUKEwi1466fpaCKAxXhErkGHVAAGYsQFnoECBAQAQ&usg=AOvVaw3eA22KztHKlK4M0EWkfpdG"><FaTwitter /></a>
                         </li>
 
                         <li className="border p-[8px] rounded-[50px]" style={{boxShadow: '1px 2px 3px gray'}}>
