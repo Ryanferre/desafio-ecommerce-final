@@ -10,6 +10,6 @@ FUNCIONALIDADES E SUAS BIBLIOTECAS
 
 3- jsonServer como baco de dados
 
-4- s3 da aws para arazenar imagens
+4- s3 da aws para arazenar imagens(ATUALMENTE SEM USO POIS A CONTA QUE SE ENCONTRAVA EM USO NO PROJETO ERA EMPRESARIAL)
 
 5- react-con para pegar icones
