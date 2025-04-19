@@ -42,7 +42,7 @@ const ListProctRelated= ()=>{
 
     useEffect(()=>{
         
-            axios.get("http://localhost:3001/products?_start=0&_limit=4").then((response)=>{
+            axios.get("http://localhost:3000/products?_start=0&_limit=4").then((response)=>{
                 setItens(response.data)
             }).catch((err)=>{
                 console.log(err)

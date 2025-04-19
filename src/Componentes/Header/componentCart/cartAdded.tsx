@@ -1,5 +1,6 @@
 import FilterItens from "../../../pagesExternas/Shop/HookCustum/ContexData"
 import { useContext, useEffect, useState } from "react";
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaCartShopping } from "react-icons/fa6"
 
 
@@ -7,9 +8,20 @@ const AddedItencart= ()=>{
     const {ItensCart, MoveBannerToCart}= useContext(FilterItens)
     const [Added, setAdded]= useState<number>(ItensCart)
 
+    const location = useLocation();
+    const navigate = useNavigate();
+    //controle do bloco de itens adicionado ao carrinho
     const MoverBanner= ()=>{
-        MoveBannerToCart('flex')
+        if(location.pathname == '/' || location.pathname == '/shop' || location.pathname == '/Contact'){
+            navigate('/Cart')
+        }
+        if(location.pathname.startsWith('/Productcart/')){
+            MoveBannerToCart('flex')
+        }
+
+        console.log(Added)
     }
+    //pega quantos itens foi adicionado ao carrinho e apresenta a quantidade acima do icone
     useEffect(()=>{
         setAdded(ItensCart)
     }, [ItensCart])

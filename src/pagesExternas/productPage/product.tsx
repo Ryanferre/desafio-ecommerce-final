@@ -43,9 +43,6 @@ const ProductPage= ()=>{
                                                     })
     const {getItenscart, ItensCart}= useContext(FilterItens)
     const [ImgCover, setCover]= useState('')
-    useEffect(()=>{
-        setCover('cover')
-    }, [])
 
     const [AddTocart, setAdd] = useState<number>(0);
     const [removeTotal, setRemove] = useState<number>(0);
@@ -88,7 +85,7 @@ const AddToCartItens = () => {
 
     useEffect(()=>{
         const GetItenUrl= async ()=>{
-            axios.get(`http://localhost:3001/products?id=${id}`).then((res)=>{
+            axios.get(`http://localhost:3000/products?id=${id}`).then((res)=>{
                 setSelect(res.data)
             })
         }
@@ -131,7 +128,9 @@ const AddToCartItens = () => {
                             <img className={styleListImg} src={objAplid.imgItem} />
                         </li>
                     </ul>
-                    <span className="w-[418px] h-[500px] rounded-[5px]" style={{background: `url(${objAplid.imgItem})`, backgroundSize: `${ImgCover}`}}></span>
+                    <span className="w-[418px] h-[500px]">
+                        <img className="w-full h-full rounded-xl" src={`${objAplid.imgItem}`}/>
+                    </span>
                 </div>
                 <div className="flex flex-col justify-between">
                 <div className="w-[560px] h-[560px] border-b border-b-[#D9D9D9]">

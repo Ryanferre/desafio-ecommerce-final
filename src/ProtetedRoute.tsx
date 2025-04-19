@@ -16,7 +16,7 @@ const ProtectedLink: React.FC<ProtectedLinkProps> = ({ to, children }) => {
     if (!isSignedIn) {//se for false vai para login
       e.preventDefault(); // Impede a navegação para o link
       navigate('/login'); // Redireciona para a página de login
-    }else{//se for verdadeiro ele impede a nevegação para login
+    }else{//se for verdadeiro ele impede a navegação para login
         e.preventDefault();
         navigate('/Adress')
     }
