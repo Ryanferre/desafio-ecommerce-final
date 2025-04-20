@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux"
 import FilterItens from "../../../pagesExternas/Shop/HookCustum/ContexData"
 import { useEffect } from "react"
 import axios from "axios"
+import { Link } from "react-router-dom";
 
 
 
@@ -26,7 +27,7 @@ type itensJson = {
 const Destaque: React.FC = ()=>{
     const {getItenscart}= useContext(FilterItens)
     const [ItenMore, setMore]= useState<number>(0)
-    const [itensl, setItens] =useState <itensJson []>([])
+    const [itens, setItens] =useState <itensJson []>([])
 
     const StateCart = useSelector((state) => state.Statecart);
 
@@ -39,7 +40,7 @@ const Destaque: React.FC = ()=>{
         const findElement= e.currentTarget.closest('li')
         const idElement= findElement.id
 
-        const filterElement = itensl.find((objeto) => objeto.id === idElement)
+        const filterElement = itens.find((objeto) => objeto.id === idElement)
 
         dispatch({ type: "INCREMENT", payload: { filterElement }});
     };
@@ -61,8 +62,8 @@ const Destaque: React.FC = ()=>{
             <div className="flex flex-col items-center gap-6">
                 <h4 className="text-[40px] font-bold">Our Products</h4>
                 <ul className="flex flex-row justify-center flex-wrap gap-6">
-                    {itensl.map((Element: itensJson)=>(
-                        <li className="relative" Key={Element.id} id={`${Element.id}`}>
+                    {itens.map((Element: itensJson)=>(
+                        <li className="relative" key={Element.id} id={`${Element.id}`}>
                             <div className="bg-[#F4F5F7] pb-8 flex flex-col gap-3">
                                 <img className="w-[260px]" src={Element.imgItem}></img>
                                 <article className="flex flex-col justify-betweenh-[100px] px-2">
@@ -101,7 +102,7 @@ const Destaque: React.FC = ()=>{
                     ))}
                 </ul>
             </div>
-            <button className="border border-[#B88E2F] text-[#B88E2F] px-[50px] py-[7px]">Show More</button>
+            <Link to={'/shop'}><button className="border border-[#B88E2F] text-[#B88E2F] px-[50px] py-[7px]">Show More</button></Link>
         </section>
     )
 }

@@ -13,15 +13,15 @@ import { FaFacebook } from "react-icons/fa"
 import { FaLinkedin } from "react-icons/fa"
 import { FaTwitter } from "react-icons/fa"
 
-type SelectJson = {
-    id: number,
-    titleName: string,
-    description: string,
-    priceTotal: string,
-    priceDiscount: string,
-    imgItem: string,
-    name: string
-}
+//type SelectJson = {
+//    id: number,
+//    titleName: string,
+//   description: string,
+//    priceTotal: string,
+//    priceDiscount: string,
+//    imgItem: string,
+//    name: string
+//}
 
 type objAplidHTML= {
         titleName: string,
@@ -31,18 +31,18 @@ type objAplidHTML= {
         imgItem: string
 }
 
+
+//componente
 const ProductPage= ()=>{
     const {id} = useParams<{id: string}>()
-    const [itSelectd, setSelect]= useState<SelectJson []>([])
-    const [objAplid, setobj]= useState<objAplidHTML>({
-                                                        titleName: '',
-                                                        description: '',
-                                                        priceTotal: '',
-                                                        priceDiscount: '',
-                                                        imgItem: ''
-                                                    })
+    const [itSelectd, setSelect]= useState<objAplidHTML>({
+                                                            titleName: '',
+                                                            description: '',
+                                                            priceTotal: '',
+                                                            priceDiscount: '',
+                                                            imgItem: ''
+                                                        })//itens recebido na requisicao
     const {getItenscart, ItensCart}= useContext(FilterItens)
-    const [ImgCover, setCover]= useState('')
 
     const [AddTocart, setAdd] = useState<number>(0);
     const [removeTotal, setRemove] = useState<number>(0);
@@ -71,22 +71,10 @@ const AddToCartItens = () => {
 };
 
     useEffect(()=>{
-        if (itSelectd.length > 0) {
-            const selectedItem = itSelectd[0]; 
-            setobj({
-                ...objAplid, // Mantendo os valores anteriores
-                titleName: selectedItem.titleName,
-                priceTotal: selectedItem.priceTotal,
-                priceDiscount: selectedItem.priceDiscount,
-                imgItem: selectedItem.imgItem
-            });
-        }
-    }, [itSelectd])
-
-    useEffect(()=>{
         const GetItenUrl= async ()=>{
             axios.get(`http://localhost:3000/products?id=${id}`).then((res)=>{
                 setSelect(res.data)
+                console.log(res.data)
             })
         }
         GetItenUrl()
@@ -109,33 +97,33 @@ const AddToCartItens = () => {
                             <span className="content boder w-[10.4px] h-[2px] transition-transform -rotate-[39deg] inline-block bg-black"></span>
                         </div>
                     </div>
-                    <p>{objAplid.titleName}</p>
+                    <p>{itSelectd.titleName}</p>
                 </div>
             </div>
             <section className="h-[800px] w-full justify-between pt-9 px-16 border flex flex-row">
                 <div className="flex flex-row w-[520px] justify-between">
                     <ul className="h-[450px] flex flex-col justify-start gap-7">
                         <li>
-                            <img className={styleListImg} src={objAplid.imgItem} />
+                            <img className={styleListImg} src={itSelectd.imgItem} />
                         </li>
                         <li>
-                            <img className={styleListImg} src={objAplid.imgItem} />
+                            <img className={styleListImg} src={itSelectd.imgItem} />
                         </li>
                         <li>
-                            <img className={styleListImg} src={objAplid.imgItem} />
+                            <img className={styleListImg} src={itSelectd.imgItem} />
                         </li>
                         <li>
-                            <img className={styleListImg} src={objAplid.imgItem} />
+                            <img className={styleListImg} src={itSelectd.imgItem} />
                         </li>
                     </ul>
                     <span className="w-[418px] h-[500px]">
-                        <img className="w-full h-full rounded-xl" src={`${objAplid.imgItem}`}/>
+                        <img className="w-full h-full rounded-xl" src={`${itSelectd.imgItem}`}/>
                     </span>
                 </div>
                 <div className="flex flex-col justify-between">
                 <div className="w-[560px] h-[560px] border-b border-b-[#D9D9D9]">
-                    <h1 className="text-[42px] font-medium">{objAplid.titleName}</h1>
-                    <p className="text-[24px] text-[#9F9F9F] font-semibold">{objAplid.priceDiscount}</p>
+                    <h1 className="text-[42px] font-medium">{itSelectd.titleName}</h1>
+                    <p className="text-[24px] text-[#9F9F9F] font-semibold">{itSelectd.priceDiscount}</p>
                     <div className="w-[250px] h-10 flex flex-row items-center justify-between mt-2">
                         <div className="w-[103px] border-r">
                             <ul className="flex flex-row items-center pt-1 h-[30px] overflow-hidden w-[88px] gap-1">
@@ -232,7 +220,7 @@ const AddToCartItens = () => {
                     </div>
                 </div>
             </section>
-            <Aboult Img1={objAplid.imgItem} Img2={objAplid.imgItem} />
+            <Aboult Img1={itSelectd.imgItem} Img2={itSelectd.imgItem} />
             <ListProctRelated />
             <ModalTocart />
         </section>
