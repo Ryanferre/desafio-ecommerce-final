@@ -49,7 +49,7 @@ const Destaque: React.FC = ()=>{
 
     useEffect(()=>{
         
-        axios.get("http://localhost:3000/products?_start=0&_limit=8").then((response)=>{
+        axios.get("https://back-end-ecommerce-d-final.onrender.com/products?_start=1&_limit=8").then((response)=>{
             setItens(response.data)
             console.log(response.data)
         }).catch((err)=>{

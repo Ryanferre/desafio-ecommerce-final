@@ -72,7 +72,7 @@ const AddToCartItens = () => {
 
     useEffect(()=>{
         const GetItenUrl= async ()=>{
-            axios.get(`http://localhost:3000/products?id=${id}`).then((res)=>{
+            axios.get(`https://back-end-ecommerce-d-final.onrender.com/products?id=${id}`).then((res)=>{
                 setSelect(res.data)
                 console.log(res.data)
             })

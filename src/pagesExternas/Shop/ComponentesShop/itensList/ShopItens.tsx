@@ -42,7 +42,7 @@ const ListItens = () => {
 
     useEffect(() => {
 
-        axios.get("http://localhost:3000/products").then((response) => {
+        axios.get("https://back-end-ecommerce-d-final.onrender.com/products").then((response) => {
             setItens(response.data)
         }).catch((err) => {
             console.log(err)
@@ -50,7 +50,7 @@ const ListItens = () => {
     }, [])//vai ser acionando na entrada da pagina
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/products?name=${itensData}`).then((response) => {
+        axios.get(`https://back-end-ecommerce-d-final.onrender.com/products?name=${itensData}`).then((response) => {
             setItens(response.data)
         }).catch((err) => {
             console.log(err)
