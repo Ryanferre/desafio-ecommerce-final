@@ -33,7 +33,9 @@ const ListItens = () => {
         const findElement = e.currentTarget.closest('li')
         const idElement = parseInt(findElement.id)//pega o id do li, que esta do tipo string, transforma em numero inteiro e armazena em uma variavel
 
-        const filterElement = itens.find((objeto) => objeto.id === idElement)//procura o elemento dentro do array com o id igual ao li que foi selecionado
+        console.log(idElement)
+
+        const filterElement = itens.find((objeto) => objeto.id == idElement)//procura o elemento dentro do array com o id igual ao li que foi selecionado
 
         console.log('esse e o fltro: ' + filterElement)
 
