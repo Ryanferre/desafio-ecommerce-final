@@ -21,9 +21,11 @@ type ItensCart = {
 
 
 const ModalTocart = () => {
-  const products = useSelector((state) => state.Statecart);
-  const dispatch = useDispatch(); // Para disparar a ação
+  const products = useSelector((state) => state.Statecart);//pega os dados do array que contem os itens
+  const dispatch = useDispatch(); // Para disparar a ação de romover ou adicionar
   const {setRemoveIten, BannerCart, MoveBannerToCart, getItenscart, ItensCart}= useContext(FilterItens)
+
+  console.log(ItensCart)
 
   // Ação para deletar
   const deleteItem = (id) => ({
@@ -46,21 +48,19 @@ const ModalTocart = () => {
   }
 
     const [AddTocart, setAdd] = useState<number>(0);//conten a quantidade de vezes no icone do carrinho
-    const [removeTotal, setRemove] = useState<number>(0);//contem a quantidade de vezes que removi no carrinho
+    const [removeTotal, setRemove] = useState<number>(0);//contem a quantidade de vezes que removi do carrinho
     const [AddRepeated, setRepeated] = useState<string []> ([]);// array com os itens independente se esta repetido ou não
     const [filterRepeated, setItenRepeated]= useState<ItensCart []>([]);//array com os itens filtrados(sem repetições)
 
-    const StateCart = useSelector((state) => state.Statecart);
-
 
     useEffect(()=>{
-      const widthArr= products
+      const widthArr= products//pega o array que contem os itens
       const Tam= widthArr.length
 
-      if(Tam > 0){//se ta zero então não tem nada
+      if(Tam > 0){//se ta zero então não tem nada no array dos itens
         setAdd(Tam);
       }
-      const f= widthArr.map((elemnt)=>(//adiciona o total de item repetidos
+      const f= widthArr.map((elemnt)=>(//guarda o total de itens repetidos
         elemnt.filterElement.id
       ))
       setRepeated(f)
@@ -73,7 +73,7 @@ const ModalTocart = () => {
     }, [products])
 
     useEffect(()=>{
-      const updatedProducts = [...products]; //Faz uma cópia
+      const updatedProducts = [...products]; //Faz uma cópia do array original
 
       for (let i = 0; i < updatedProducts.length; i++) {
         //Conta quantas vezes o id aparece no array AddRepeated
@@ -95,7 +95,8 @@ const ModalTocart = () => {
 
       const QuantRepted= item.filterElement.Quant
 
-        if (AddTocart > 0) {//adicionado ao box do carrinho
+      //logica para remover itens
+        if (AddTocart > 0) {//se tiver itens adicionado ao box do carrinho
             setAdd((prev) => prev - 1);//retirando do box do carrinho
             if(QuantRepted == 1){//a cada item removido é adicionado mais 1
               setRemove((prev) => prev + 1)
@@ -107,7 +108,7 @@ const ModalTocart = () => {
 
     useEffect(()=>{
         if (removeTotal > 0) {
-            getItenscart(ItensCart - removeTotal);//pego a quantidade de itens que foram removidos do box e subtraio enviando o resultado para o contexto
+            getItenscart(ItensCart - removeTotal);//pego a quantidade de itens que foram removidos do box e subtraio com a quantidade que existe no contexto enviando o resultado para o contexto
             setRemove(0);
         }
     }, [removeTotal])

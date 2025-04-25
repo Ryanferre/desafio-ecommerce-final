@@ -47,7 +47,7 @@ const Cart = ()=>{
         setItenRepeated(filterRepeatedItem)
       }, [products])
 
-      //quantas vezes o elemento de repete
+      //quantas vezes o elemento se repete
       useEffect(()=>{
         const updatedProducts = [...products]; // Faz uma cópia
   

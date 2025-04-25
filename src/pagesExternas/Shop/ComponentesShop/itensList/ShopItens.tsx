@@ -31,11 +31,11 @@ const ListItens = () => {
         setMore((prev) => prev + 1)
         getItenscart(ItenMore)
         const findElement = e.currentTarget.closest('li')
-        const idElement = findElement.id
+        const idElement = parseInt(findElement.id)//pega o id do li, que esta do tipo string, transforma em numero inteiro e armazena em uma variavel
 
-        console.log(idElement)
+        const filterElement = itens.find((objeto) => objeto.id === idElement)//procura o elemento dentro do array com o id igual ao li que foi selecionado
 
-        const filterElement = itens.find((objeto) => objeto.id === idElement)
+        console.log('esse e o fltro: ' + filterElement)
 
         dispatch({ type: "INCREMENT", payload: { filterElement } });
     };
@@ -43,11 +43,11 @@ const ListItens = () => {
     useEffect(() => {
 
         axios.get("https://back-end-ecommerce-d-final.onrender.com/products").then((response) => {
-            setItens(response.data)
+            setItens(response.data)//guarda os itens da resposta no array de objetos chamado "itens"
         }).catch((err) => {
             console.log(err)
         })
-    }, [])//vai ser acionando na entrada da pagina
+    }, [])//vai ser acionando na entrada da pagina carregando os produtos da API
 
     useEffect(() => {
         axios.get(`https://back-end-ecommerce-d-final.onrender.com/products?name=${itensData}`).then((response) => {
@@ -76,7 +76,7 @@ const ListItens = () => {
                                     </div>
                                 </div>
                             </Link>
-                            {/*Contedo do hover */}
+                            {/*Conteudo do hover */}
                             <div className={`id${Products.id} absolute flex flex-col opacity-0 hover:opacity-100 hover:bg-[#0000008a] items-center justify-center inset-0 h-[280px] cursor-pointer`}>
                                 <div className="w-full h-[110px] flex flex-col items-center justify-between pt-5">
                                     <button className="w-[202px] h-[48px] bg-white font-semibold text-[16px] text-[#B88E2F]" onClick={AddItem}>Add to cart</button>

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import  axios  from "axios"
 import FilterItens from "../../Shop/HookCustum/ContexData";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 type itensJson = {
@@ -16,17 +16,15 @@ type itensJson = {
 const StyleIconsHover= "flex flex-row items-center gap-[2px]"
 const IconDescription ="text-white font-semibold text-[16px]"
 
+//componente para carregar os 4 itens que ficam na parte de baixo, na pagina de apresentacao de produto
 const ListProctRelated= ()=>{
     const [itensl, setItens] =useState <itensJson []>([])
     const { getItenscart, ItensCart }= useContext(FilterItens)
     const [ItenMore, setMore]= useState<number>(1)
-
-
-
-
     const dispatch = useDispatch();
 
 
+    //adicionar iten
     const AddItem = (e) => {
         setMore((prev)=> prev + 1)
         getItenscart(ItenMore)
@@ -34,19 +32,27 @@ const ListProctRelated= ()=>{
         console.log(ItensCart)
         const findElement= e.currentTarget.closest('li')
         const idElement= findElement.id
+        console.log(idElement)
+        console.log(findElement)
 
+        //pega as insformacoes do itens que foi adicionado
         const filterElement = itensl.find((objeto) => objeto.id === idElement)
+        console.log(filterElement)
 
         dispatch({ type: "INCREMENT", payload: { filterElement }});
     };
 
+
     useEffect(()=>{
         
-            axios.get("http://localhost:3000/products?_start=0&_limit=4").then((response)=>{
-                setItens(response.data)
-            }).catch((err)=>{
-                console.log(err)
-            })
+            const conectserver= async ()=>{
+                axios.get("https://back-end-ecommerce-d-final.onrender.com/products?_start=1&_limit=4").then((response)=>{
+                    setItens(response.data)//guarda os itens que recebi da requisicao
+                }).catch((err)=>{
+                    console.log(err)
+                })
+            }
+            conectserver()
     }, [])//vai ser acionando na entrada da pagina
 
     return(
