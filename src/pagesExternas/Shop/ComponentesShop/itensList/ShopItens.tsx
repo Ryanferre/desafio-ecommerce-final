@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import axios from "axios"
 import FilterItens from "../../HookCustum/ContexData"
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 type itensJson = {
@@ -21,9 +21,6 @@ const ListItens = () => {
     const [itens, setItens] = useState<itensJson[]>([])
     const { itensData, getItenscart } = useContext(FilterItens)
     const [ItenMore, setMore] = useState<number>(1)//no primeiro click, é adicionado mais 1 o mesmo acontece no outro componente
-
-    const StateCart = useSelector((state) => state.Statecart);
-
     const dispatch = useDispatch();
 
 
@@ -62,6 +59,7 @@ const ListItens = () => {
 
     return (
         <section className="px-[80px] pt-[70px]">
+            {itens.length === 0 ? <img className="w-20 m-auto" src={'https://cdn.pixabay.com/animation/2023/08/11/21/18/21-18-05-265_256.gif'}/> :
             <ul className="flex flex-row justify-around flex-wrap gap-4">
                 {itens.map((Products) => (
                     <li className="w-[265px] relative" key={Products.id} id={`${Products.id}`}>
@@ -107,7 +105,7 @@ const ListItens = () => {
                         </div>
                     </li>
                 ))}
-            </ul>
+            </ul>}
         </section>
     )
 }

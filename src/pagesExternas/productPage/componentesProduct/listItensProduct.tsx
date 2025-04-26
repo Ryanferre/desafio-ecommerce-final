@@ -57,7 +57,8 @@ const ListProctRelated= ()=>{
 
     return(
         <section className="px-[80px] pt-[70px]">
-            <ul className="flex flex-row justify-around flex-wrap gap-4">
+            {itensl.length === 0 ? <img className="w-20 m-auto" src={'https://cdn.pixabay.com/animation/2023/08/11/21/18/21-18-05-265_256.gif'}/> :
+             <ul className="flex flex-row justify-around flex-wrap gap-4">
                 {itensl.map((Productsl)=>(
                         <li className="w-[265px] relative" id={`${Productsl.id}`}>
                         {/*conteudo do json server */}
@@ -102,7 +103,7 @@ const ListProctRelated= ()=>{
                           </div>
                     </li>
                 ))}
-            </ul>
+            </ul>}
         </section>
     )
 }

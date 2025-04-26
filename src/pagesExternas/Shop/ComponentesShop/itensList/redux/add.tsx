@@ -22,7 +22,6 @@ const Init: CartState = { Statecart: [] };
 const reducer = (state: CartState = Init, action: any): CartState => {
   switch (action.type) {
     case "INCREMENT":
-        console.log(state)
       return { ...state, Statecart: [...state.Statecart, action.payload] };
 
     case "DELETE":
