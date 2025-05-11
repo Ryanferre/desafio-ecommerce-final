@@ -24,7 +24,7 @@ type FilterElement = {
 const Cart = ()=>{
     const products = useSelector((state) => state.Statecart);
 
-    const [AddTocart, setAdd] = useState<number>(0);//adiciomando itens
+    const [AddTocart, setAdd] = useState<number>(0);//adicionando itens
     const [removeTotal, setRemove] = useState<number>(0);//quantidade de vezes que retiro
     const [AddRepeated, setRepeated] = useState<string []> ([]);//array com o id de cada item(é aqui que selecino todos os itens independetemente se ele se repete ou não)
     const [filterRepeated, setItenRepeated]= useState<ItensCart []>([]);//array com somente um item

@@ -18,7 +18,7 @@ const IconDescription ="text-white font-semibold text-[16px]"
 
 //componente para carregar os 4 itens que ficam na parte de baixo, na pagina de apresentacao de produto
 const ListProctRelated= ()=>{
-    const [itensl, setItens] =useState <itensJson []>([])
+    const [itensl, setItens] =useState <itensJson []>([])//itens da requisicao
     const { getItenscart, ItensCart }= useContext(FilterItens)
     const [ItenMore, setMore]= useState<number>(1)
     const dispatch = useDispatch();
@@ -36,8 +36,8 @@ const ListProctRelated= ()=>{
         console.log(findElement)
 
         //pega as insformacoes do itens que foi adicionado
-        const filterElement = itensl.find((objeto) => objeto.id === idElement)
-        console.log(filterElement)
+            const filterElement = itensl.find((objeto) => objeto.id == idElement)//procurando nos elementos da requisicao, compare o objeto da resuicao com o id do elemento
+            console.log(filterElement)
 
         dispatch({ type: "INCREMENT", payload: { filterElement }});
     };

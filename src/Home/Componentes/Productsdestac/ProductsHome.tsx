@@ -61,6 +61,7 @@ const Destaque: React.FC = ()=>{
         <section className="w-[1236px] h-[1014px] m-auto flex flex-col items-center gap-7">
             <div className="flex flex-col items-center gap-6">
                 <h4 className="text-[40px] font-bold">Our Products</h4>
+                {itens.length === 0 ? <img className="w-20 m-auto" src={'https://cdn.pixabay.com/animation/2023/08/11/21/18/21-18-05-265_256.gif'}/> :
                 <ul className="flex flex-row justify-center flex-wrap gap-6">
                     {itens.map((Element: itensJson)=>(
                         <li className="relative" key={Element.id} id={`${Element.id}`}>
@@ -73,7 +74,7 @@ const Destaque: React.FC = ()=>{
                                 </article>
                             </div>
                             {/*Contedo do hover */}
-                          <div className={`id${Element.id} absolute flex flex-col opacity-0 hover:opacity-100 hover:bg-[#0000008a] items-center justify-center inset-0 h-[280px] cursor-pointer`}>
+                          <div className={`id${Element.id} absolute flex flex-col opacity-0 hover:opacity-100 hover:bg-[#0000008a] items-center justify-center inset-0 h-[275px] cursor-pointer`}>
                                 <div className="w-full h-[110px] flex flex-col items-center justify-between pt-5">
                                     <button className="w-[202px] h-[48px] bg-white font-semibold text-[16px] text-[#B88E2F]" onClick={AddItem}>Add to cart</button>
                                     <ul className="flex flex-row items-center justify-between w-[230px]">
@@ -100,7 +101,7 @@ const Destaque: React.FC = ()=>{
                             </div>
                         </li>
                     ))}
-                </ul>
+                </ul>}
             </div>
             <Link to={'/shop'}><button className="border border-[#B88E2F] text-[#B88E2F] px-[50px] py-[7px]">Show More</button></Link>
         </section>

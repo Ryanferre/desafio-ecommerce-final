@@ -55,15 +55,16 @@ const ModalTocart = () => {
 
     useEffect(()=>{
       const widthArr= products//pega o array que contem os itens
-      const Tam= widthArr.length
+      const Tam= widthArr.length//tmanho do array de itens
 
-      if(Tam > 0){//se ta zero então não tem nada no array dos itens
-        setAdd(Tam);
+      if(Tam > 0){//se for mair que zero então tem iten no array dos itens
+        setAdd(Tam);//atualizar a quantidade do icone do carrinho com os elementos, se for 0 o icone vai apresentar 0
       }
-      const f= widthArr.map((elemnt)=>(//guarda o total de itens repetidos
-        elemnt.filterElement.id
+
+      const itensrepten= widthArr.map((elemnt)=>(//cria um array com os id's dos elementos
+        elemnt.filterElement.id//pega o id do elemento
       ))
-      setRepeated(f)
+      setRepeated(itensrepten)//guarda o array
 
       const filterRepeatedItem= products.filter((element, i, s)=>(//seleciona somente um elemento
         i === s.findIndex((e) => e.filterElement.id === element.filterElement.id)
