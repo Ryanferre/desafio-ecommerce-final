@@ -74,11 +74,10 @@ const AddToCartItens = () => {
         const GetItenUrl= async ()=>{
             axios.get(`https://back-end-ecommerce-d-final.onrender.com/products?id=${id}`).then((res)=>{
                 setSelect(res.data)
-                console.log(res.data)
             })
         }
         GetItenUrl()
-    }, [])
+    }, [id])
 
     const styleListImg= 'w-[76px] h-[80px] boder rounded-[5px]'
     return(

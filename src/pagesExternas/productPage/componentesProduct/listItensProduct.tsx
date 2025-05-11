@@ -65,14 +65,14 @@ const ListProctRelated= ()=>{
                         <div className="flex flex-col items-center bg-[#F4F5F7]">
                           <img className="w-full" src={Productsl.imgItem} />
                           <Link key={Productsl.id} to={`/Productcart/${Productsl.id}`}>
-                          <div className="w-[230px] h-[120px] flex flex-col gap-1 pt-2">
-                            <p className="font-semibold text-[19px]">{Productsl.titleName}</p>
-                            <p>{Productsl.description}</p>
-                            <div className="flex flex-row items-center w-full justify-between">
-                              <p className="font-semibold text-[19px]">{Productsl.priceDiscount}</p>
-                              <p className="text-[#898989] font-medium text-[16px]">{Productsl.priceTotal}</p>
+                            <div className="w-[230px] h-[120px] flex flex-col gap-1 pt-2">
+                                <p className="font-semibold text-[19px]">{Productsl.titleName}</p>
+                                <p>{Productsl.description}</p>
+                                <div className="flex flex-row items-center w-full justify-between">
+                                <p className="font-semibold text-[19px]">{Productsl.priceDiscount}</p>
+                                <p className="text-[#898989] font-medium text-[16px]">{Productsl.priceTotal}</p>
+                                </div>
                             </div>
-                          </div>
                           </Link>
                           {/*Contedo do hover */}
                           <div className={`id${Productsl.id} absolute flex flex-col opacity-0 hover:opacity-100 hover:bg-[#0000008a] items-center justify-center inset-0 h-[280px] cursor-pointer`}>
